@@ -1,7 +1,4 @@
-import org.w3c.dom.Text;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -9,7 +6,7 @@ import java.net.Socket;
 
 public class clinetUI extends JFrame{
     private JPanel mainPanel;
-    private JTextField Textbox;
+    private JTextField textBox;
     private JButton sendButton;
     private  JTextArea chatArea;
     private  static Socket socket;
@@ -28,9 +25,9 @@ public class clinetUI extends JFrame{
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String message = Textbox.getText();
+                String message = textBox.getText();
                 if(!message.isEmpty()){
-                    System.out.println("Message Sent!");
+                    chatArea.setText(chatArea.getText().trim()+ "\n Client:\t" + message );
                     sendMessage(message);
 
                 }
